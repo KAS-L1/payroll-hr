@@ -1,0 +1,14 @@
+# Ignore vendor directory (for PHP packages)
+vendor/
+
+# Ignore all files in the upload document and profile directories
+/upload/document/*
+/upload/user/*
+/upload/product/*
+
+# Ignore storage directory
+storage/
+
+# Allow a specific file inside ignored directories
+!upload/user/default.png
+!upload/product/default.png
