@@ -26,67 +26,78 @@
                 <li class="nav-item">
                     <?php
 
-                    $currentRoute = $_SERVER['REQUEST_URI'];
+                        $currentRoute = $_SERVER['REQUEST_URI'];
 
-                    renderNavItem(
-                        'bi bi-grid-1x2',
-                        'Dashboard',
-                        '/dashboard',
-                        null,
-                        [],
-                        $currentRoute
-                    );
+                        NavItem(
+                            'bi bi-grid-1x2',
+                            'Dashboard',
+                            '/dashboard',
+                            null,
+                            [],
+                            $currentRoute
+                        );
 
-                    renderSectionHeader('HR MANAGEMENT');
+                        NavSection('HR MANAGEMENT');
 
-                    renderNavItem(
-                        'bi bi-person-circle',
-                        'Self Service Portal',
-                        '/self-service',
-                        null,
-                        [],
-                        $currentRoute
-                    );
+                        NavItem(
+                            'bi bi-person-circle',
+                            'Self Service Portal',
+                            '/self-service',
+                            null,
+                            [],
+                            $currentRoute
+                        );
 
-                    renderNavItem(
-                        'bi bi-cash-coin',
-                        'Payrol Processing',
-                        '/payroll-processing',
-                        null,
-                        [],
-                        $currentRoute
-                    );
+                        NavItem(
+                            'bi bi-cash-coin',
+                            'Payrol Processing',
+                            '/payroll-processing',
+                            null,
+                            [],
+                            $currentRoute
+                        );
 
-                    renderNavItem(
-                        'bi bi-piggy-bank',
-                        'Benefits & Compensation',
-                        '/benefits-compensation',
-                        null,
-                        [],
-                        $currentRoute
-                    );
+                        NavItem(
+                            'bi bi-piggy-bank',
+                            'Benefits & Compensation',
+                            '/benefits-compensation',
+                            null,
+                            [],
+                            $currentRoute
+                        );
 
-                    renderSectionHeader('FINANCE');
+                        NavSection('FINANCE DEPARTMENT');
 
-                    renderNavItem(
-                        'bi bi-cash-stack',
-                        'Payroll Approval',
-                        '/payroll-approval',
-                        null,
-                        [],
-                        $currentRoute
-                    );
+                        NavItem(
+                            'bi bi-cash-stack',
+                            'Payroll Approval',
+                            '/payroll-approval',
+                            null,
+                            [],
+                            $currentRoute
+                        );
 
-                    renderSectionHeader('AI HELP DESK');
+                        NavSection('AI HELP DESK');
 
-                    renderNavItem(
-                        'bi bi-window-dock',
-                        'Access Portal',
-                        '/payroll-approval',
-                        null,
-                        [],
-                        $currentRoute
-                    );
+                        NavItem(
+                            'bi bi-window-dock',
+                            'Access Portal',
+                            '/payroll-approval',
+                            null,
+                            [],
+                            $currentRoute
+                        );
+
+                        NavSection('ADMINISTRATION');
+
+                        NavItem(
+                            'bi bi-people',
+                            'Users Management',
+                            '/users',
+                            null,
+                            [],
+                            $currentRoute
+                        );
 
                     ?>
                 </li>

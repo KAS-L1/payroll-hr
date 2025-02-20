@@ -130,13 +130,13 @@
                         <li>
                             <div class="flex items-center px-4 py-4">
                                 <div class="flex-none">
-                                    <img class="h-10 w-10 rounded-md object-cover"
+                                    <img class="h-10 w-10 object-cover rounded-full"
                                         src="<?= DOMAIN ?>/upload/profile/<?= AUTH_USER['picture'] ?>"
                                         alt="image">
                                 </div>
                                 <div class="truncate ltr:pl-4 rtl:pr-4">
                                     <h4 class="text-base">
-                                        <?= AUTH_USER['first_name'] . ' ' . AUTH_USER['last_name'] ?>
+                                        <?= AUTH_USER['firstname'] . ' ' . AUTH_USER['lastname'] ?>
                                     </h4>
                                     <a class="text-black/60 hover:text-primary dark:text-dark-light/60 dark:hover:text-white"
                                         href="javascript:;"><?= AUTH_USER['email'] ?></a>
@@ -144,7 +144,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="/profile" class="dark:hover:text-white" @click="toggle">
+                            <a href="<?=Route('profile')?>" class="dark:hover:text-white" @click="toggle">
                                 <svg class="h-4.5 w-4.5 shrink-0 ltr:mr-2 rtl:ml-2" width="18" height="18"
                                     viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="12" cy="6" r="4" stroke="currentColor"
@@ -153,15 +153,12 @@
                                         d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z"
                                         stroke="currentColor" stroke-width="1.5"></path>
                                 </svg>
-                                Profile</a>
+                                Profile
+                            </a>
                         </li>
                         <li class="border-t border-white-light dark:border-white-light/10">
-                            <form action="api/auth/logout.php" method="POST" style="display: none;"
-                                id="logout-form">
-                                @csrf
-                            </form>
-
-                            <a href="../api/auth/logout.php" class="!py-3 text-danger">
+                           
+                            <a href="<?=Route('api/auth/logout.php')?>" class="!py-3 text-danger">
                                 <svg class="h-4.5 w-4.5 shrink-0 rotate-90 ltr:mr-2 rtl:ml-2" width="18"
                                     height="18" viewbox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -174,12 +171,6 @@
                                 </svg>
                                 Sign Out
                             </a>
-                            <!-- <button type="button" class="btn" :class="[$store.app.menu === 'horizontal' ? 'btn-primary' :'btn-outline-primary']" @click="$store.app.toggleMenu('horizontal')">
-                                Horizontal
-                            </button>
-                            <button type="button" class="btn" :class="[$store.app.menu === 'vertical' ? 'btn-primary' :'btn-outline-primary']" @click="$store.app.toggleMenu('vertical')">
-                                Vertical
-                            </button> -->
                         </li>
                     </ul>
                 </div>

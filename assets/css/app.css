@@ -1,20 +1,19 @@
 /* APP GLOBAL STYLING */
 
 :root {
-  --app-color-primary: none;
-  --app-color-secondary: none;
+    --app-color-primary: none;
+    --app-color-secondary: none;
 }
-
 
 /* CSS RESET */
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
 a {
-  text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 /* BOOTSTRAP STYLING */
