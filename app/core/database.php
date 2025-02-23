@@ -33,11 +33,35 @@ class Database
 	// CONNECTION INSTANCE
 	public function DB_CONNECTION()
 	{
-		$this->DB = new mysqli($this->DB_HOST, $this->DB_USER, $this->DB_PASSWORD, $this->DB_NAME);
-		if (!$this->DB) {
-			print($this->DB->connect_error);
-			exit();
-		}
+        try{
+            $this->DB = new mysqli($this->DB_HOST, $this->DB_USER, $this->DB_PASSWORD, $this->DB_NAME);
+            if (!$this->DB) {
+                print($this->DB->connect_error);
+            }
+        }catch(Exception $e){
+            die('
+                <!DOCTYPE html>
+                <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Application Error</title>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+                    </head>
+                    <body class="min-vh-100 d-flex align-items-center">
+                        <div class="container text-center">
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <p class="lead">Something went wrong</p>
+                                    <p class="mb-1 small">We\'re sorry, but an unexpected error occurred.</p>
+                                    <code>'.$e->getMessage().'</code>
+                                </div>
+                            </div>
+                        </div>
+                    </body>
+                </html>
+            ');
+        }
 	}
 
 	// CLOSE CONNECTION
