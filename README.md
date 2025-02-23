@@ -68,7 +68,7 @@ This file tracks tasks and progress for Payroll HR Capstone System.
 
     ```json
     {
-        "success": true,
+        "success": false,
         "message": "Token is invalid message details"
     }
     ```
@@ -77,7 +77,7 @@ This file tracks tasks and progress for Payroll HR Capstone System.
 
     ```json
     {
-        "success": true,
+        "success": false,
         "message": "Validation message either required or duplicate"
     }
     ```
@@ -86,7 +86,7 @@ This file tracks tasks and progress for Payroll HR Capstone System.
 
     ```json
     {
-        "success": true,
+        "success": false,
         "message": "Payrol data failed to insert",
         "error": "catched error message"
     }
