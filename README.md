@@ -7,13 +7,13 @@ This file tracks tasks and progress for Payroll HR Capstone System.
 -   [x] User Login and Authentication.
 -   [x] User Profile settings update information, password and change picture.
 -   [x] Manage users add update information and role.
+-   [] Benefits and Compensation
 -   [] Payroll Processing.
     -   [] Payslip
     -   [] Reports
--   [] Benefits and Compensation
--   [] Self Service Portal
 -   [] Payroll Approval
     -   [] Pending Report
+-   [] Self Service Portal
 -   [] Helpdesk AI Portal
 
 ## Integration
@@ -35,6 +35,7 @@ This file tracks tasks and progress for Payroll HR Capstone System.
             "employee_id": "EMP1001",
             "employee_name": "JHON DOE",
             "total_days": 10,
+            "total_holiday": 1,
             "cutoff_start" : "2025-02-01",
             "cutoff_end" : "2025-02-15"
         },
@@ -42,6 +43,7 @@ This file tracks tasks and progress for Payroll HR Capstone System.
             "employee_id": "EMP1002",
             "employee_name": "JON DOE",
             "total_days": 8,
+            "total_holiday": 0,
             "cutoff_start" : "2025-02-01",
             "cutoff_end" : "2025-02-15"
         },

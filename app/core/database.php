@@ -6,17 +6,29 @@
 
 class Database
 {
-	public $DB_HOST = "localhost";
-	public $DB_USER = "root";
-	public $DB_PASSWORD = "";
-	public $DB_NAME = "payroll";
 	public $DB;
+    private $DB_HOST;
+    private $DB_USER;
+    private $DB_PASSWORD;
+    private $DB_NAME;
 
 	// INITIATE CONNECTION 	
-	function __construct()
-	{
-		$this->DB_CONNECTION();
-	}
+    function __construct()
+    {
+        $connection = include __DIR__ . '/connection.php';
+
+        // Ensure the connection file returns an array
+        if (!is_array($connection)) {
+            die("Database configuration error: connection.php must return an array.");
+        }
+
+        $this->DB_HOST = $connection['DB_HOST'] ?? 'localhost';
+        $this->DB_USER = $connection['DB_USER'] ?? 'root';
+        $this->DB_PASSWORD = $connection['DB_PASSWORD'] ?? '';
+        $this->DB_NAME = $connection['DB_NAME'] ?? '';
+
+        $this->DB_CONNECTION();
+    }
 
 	// CONNECTION INSTANCE
 	public function DB_CONNECTION()
