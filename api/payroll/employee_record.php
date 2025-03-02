@@ -3,19 +3,11 @@
 
 $headers = getallheaders();
 
-if(!isset($headers['Token'])){
+if(!isset($headers['Token']) OR empty($headers['Token'])){
     http_response_code(401);
     die(json_encode([
         "success" => false, 
-        "message" => "Authorization token required"
-    ]));
-}
-
-if(empty($headers['Token'])) {
-    http_response_code(401);
-    die(json_encode([
-        "success" => false, 
-        "message" => "Invalid authorization token"
+        "message" => "Invalid authorization token is required"
     ]));
 }
 
