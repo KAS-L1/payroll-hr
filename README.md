@@ -24,7 +24,7 @@ This file tracks tasks and progress for Payroll HR Capstone System.
 
     ```http
     HEADER: {token}
-    POST: https://{domain}/api/payroll/employee_record.php
+    POST: https://{domain}/api/payroll/add_employee_record.php
     ```
 
     Payload Array of Object:
