@@ -102,7 +102,7 @@ try {
     http_response_code(500);
     die(json_encode([
         "success" => false,
-        "message" => "Payroll data failed to insert",
+        "message" => "Server response error",
         "error" => $e->getMessage()
     ]));
 
