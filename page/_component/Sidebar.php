@@ -40,9 +40,9 @@
                         NavSection('HR MANAGEMENT');
 
                         NavItem(
-                            'bi bi-person-circle',
-                            'Self Service Portal',
-                            '/self-service',
+                            'bi bi-people',
+                            'Employees',
+                            '/employees',
                             null,
                             [],
                             $currentRoute
@@ -61,6 +61,15 @@
                             'bi bi-piggy-bank',
                             'Benefits & Compensation',
                             '/benefits-compensation',
+                            null,
+                            [],
+                            $currentRoute
+                        );
+
+                        NavItem(
+                            'bi bi-person-circle',
+                            'Self Service',
+                            '/self-service',
                             null,
                             [],
                             $currentRoute
