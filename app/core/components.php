@@ -79,15 +79,6 @@ function Error($text)
 
 function Swal($type, $title, $buttonText = null, $text = null)
 {
-	if ($type == "success") {
-		$color = 'var(--bs-success)';
-	} else if ($type == "warning") {
-		$color = 'var(--bs-warning)';
-	} else if ($type == "error") {
-		$color = 'var(--bs-danger)';
-	} else {
-		$color = 'var(--bs-primary)';
-	}
 	?>
 	<script>
 		Swal.fire({
@@ -95,7 +86,6 @@ function Swal($type, $title, $buttonText = null, $text = null)
 			title: '<?= $title ?>',
 			text: '<?= $text ?>',
 			confirmButtonText: '<?= isset($buttonText) ? $buttonText : 'Okay' ?>',
-			confirmButtonColor: '<?= $color ?>'
 		})
 	</script>
 	<?php

@@ -42,11 +42,9 @@ try{
 
     if($migrate_employee['success']){
         http_response_code(200);
-        die(json_encode([
-            "success" => true,
-            "total_count" => $employeeData['total_count'],
-            "message" => "Employee data successfully migrated"
-        ]));
+        Swal("success", "Employee data synced successfully");
+        Refresh(3000);
+        die();
     }else{
         http_response_code(500);
         die(json_encode([

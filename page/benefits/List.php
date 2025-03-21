@@ -7,38 +7,31 @@
     <?php
         Breadcrumb([
             ['label' => 'Home', 'url' => '/dashboard'],
-            ['label' => 'Employees', 'url' => '/employees'],
+            ['label' => 'Benefits & Compensation', 'url' => '/benefits-compensation'],
         ]);
     ?>
 
     <div class="panel h-full flex-col">
-        <div class="flex justify-end">
-            <button class="btn btn-primary" id="btnSyncEmployee">
-                <i class="bi bi-people mr-2"></i> Sync Employees
-            </button>
-        </div>
         <div class="table-responsive  min-h-[400px] grow overflow-y-auto sm:min-h-[300px]">
             <table id="dataTable" class="table-bordered table-hover">
                 <thead class="bg-gray-50">
                     <tr>
                         <th class="uppercase text-xs">Employee ID</th>
                         <th class="uppercase text-xs">Employee Name</th>
-                        <th class="uppercase text-xs">Email</th>
-                        <th class="uppercase text-xs">Contact</th>
-                        <th class="uppercase text-xs">Position</th>
-                        <th class="uppercase text-xs">Birthdate</th>
-                        <th class="uppercase text-xs">Gender</th>
-                        <th class="uppercase text-xs">Civil Status</th>
-                        <th class="uppercase text-xs">Address</th>
+                        <th class="uppercase text-xs">Benefits</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    <?php foreach ($employees as $employee){ ?>
+                    <?php foreach ($employees as $employee){ 
+                        
+                        $compensation = $DB->SELECT_WHERE("benefits_compensation", "*", ["employee_id" => $employee['employee_id']]);
+    
+                    ?>
                         <tr>
                             <td class="px-6 py-4">
                                 <div class="flex justify-center items-center gap-3">
-                                    <a href="<?=ROUTE('employees/details?emp_id='.$employee['employee_id'])?>" x-tooltip="Details" class="p-2">
+                                    <a href="<?=ROUTE('benefits-compensation/details?emp_id='.$employee['employee_id'])?>" x-tooltip="Details" class="p-2">
                                         <i class="fa fa-eye text-lg text-primary"></i> <b><?=$employee['employee_id']?></b>
                                     </a>
                                 </div>
@@ -53,13 +46,18 @@
                                     </div>
                                 </div>
                             </td>
-                            <td><?= $employee['email'] ?></td>
-                            <td><?= $employee['contact'] ?></td>
-                            <td><?= $employee['position'] ?></td>
-                            <td><?= $employee['birthdate'] ?></td>
-                            <td><?= $employee['gender'] ?></td>
-                            <td><?= $employee['civil_status'] ?></td>
-                            <td><?= $employee['address'] ?></td>
+                            <td>
+                                <?php
+                                    foreach ($compensation as $other) {
+                                        ?>
+                                            <div class="flex justify-between">
+                                                <div><?=$other['type']?>:</div>
+                                                <div class="font-bold"><?=PESO($other['amount'])?></div>
+                                            </div>
+                                        <?php
+                                    }
+                                ?>
+                            </td>
                         </tr>
                     <?php } ?>
                     

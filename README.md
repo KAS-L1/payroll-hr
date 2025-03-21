@@ -8,6 +8,7 @@ This file tracks tasks and progress for Payroll HR Capstone System.
 -   [x] User Profile settings update information, password and change picture.
 -   [x] Manage users add update information and role.
 -   [x] Get employees to other HR system
+-   [x] Sync Employee Data
 -   [] Benefits and Compensation
 -   [] Payroll Processing.
     -   [] Payslip
