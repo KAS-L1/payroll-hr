@@ -31,7 +31,7 @@
                 <div class="panel h-full overflow-hidden border-0 p-0">
                     <div class="min-h-[190px] bg-gradient-to-r from-[#4361ee] to-[#160f6b] p-6">
                         <div class="flex items-center justify-between text-white">
-                            <p class="text-xl">Total Payroll Approved</p>
+                            <p class="text-xl">Total Payroll Released</p>
                             <h5 class="text-2xl ltr:ml-auto rtl:mr-auto"><span class="text-white-light">₱</span><?=NUMBER($payroll_paid['totalPaid'])?></h5>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                         $payroll_transactions = $DB->SELECT_WHERE("payroll", "*", ["status" => 'Approved'], "ORDER BY updated_at DESC");
                     ?>
                 
-                    <h5 class="mb-5 text-lg font-semibold dark:text-white-light">Recent Approve Payroll</h5>
+                    <h5 class="mb-5 text-lg font-semibold dark:text-white-light">Recent Transactions</h5>
 
                     <div class="perfect-scrollbar relative -mr-3 mb-4 h-[290px] pr-3">
                         <div class="cursor-pointer text-sm">
