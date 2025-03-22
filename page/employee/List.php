@@ -46,7 +46,7 @@
                             <td class="p-2 lg:p-4">
                                 <div class="flex flex-col sm:flex-row items-center gap-3">
                                     <div class="w-12 h-12 min-w-12 shrink-0">
-                                        <img class="w-full h-full rounded-full object-cover" src="<?=DOMAIN?>/upload/profile/default.png" alt="Profile" />
+                                        <img class="w-full h-full rounded-full object-cover" src="<?=$employee['profile']?>" alt="Profile" />
                                     </div>
                                     <div class="text-sm sm:text-base text-center sm:text-left break-words max-w-[200px]">
                                         <?= $employee['firstname'] . ' ' . $employee['lastname'] ?>

@@ -3,20 +3,22 @@
 <?php
 
 // Validate input fields
-if(empty($_POST['employee_id']) OR empty($_POST['type']) OR empty($_POST['amount'])) die(Toast("error", "Empty fields is required"));
+if(empty($_POST['employee_id']) OR empty($_POST['category']) OR empty($_POST['type']) OR empty($_POST['amount'])) die(Toast("error", "Empty fields is required"));
 
 $employee_id = $_POST['employee_id'];
-$type = $_POST['type'];
+$category = $_POST['category'];
 $amount = $_POST['amount'];
+$type = $_POST['type'];
 
 $exist_salary = $DB->SELECT_ONE_WHERE("benefits_compensation", "*", ["employee_id" => $employee_id, "type" =>  $type]);
-if(!empty($exist_salary)) die(toast("error", CAMEL($type)." already exist"));
+if(!empty($exist_salary)) die(Toast("error", CAMEL($type)." already exist"));
 
 // Insert user data
 $data = [
     "employee_id" => $employee_id,
-    "type" => $type,
-    "amount" => $amount,
+    "type" => $category,
+    "amount" => $type == 'Add' ? $amount : '-'.$amount,
+    "remark" => $type,
     "created_at" => DATE_TIME
 ];
 

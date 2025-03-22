@@ -4,7 +4,7 @@
 
 try{
 
-    $data = file_get_contents("https://hr1.paradisehoteltomasmorato.com/api/all-employee-information");
+    $data = file_get_contents("https://hr1.paradisehoteltomasmorato.com/api/all-employee-docs");
     $employeeData = json_decode($data, true);
     
     foreach($employeeData['data'] as $employee){

@@ -14,8 +14,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="<?= DOMAIN ?>/assets/css/perfect-scrollbar.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="<?= DOMAIN ?>/assets/css/style.css">
     <link defer="" rel="stylesheet" type="text/css" media="screen" href="<?= DOMAIN ?>/assets/css/animate.css">
-    <link rel="stylesheet" href="<?= DOMAIN ?>/assets/css/app.css">
-    <link rel="stylesheet" href="<?= DOMAIN ?>/page/_component/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -23,9 +21,11 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.1/css/buttons.jqueryui.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.1/css/buttons.dataTables.css">
-    <link href="https://cdn.datatables.net/v/dt/dt-2.2.2/r-3.0.3/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet"href="https://cdn.datatables.net/v/dt/dt-2.2.2/r-3.0.3/datatables.min.css">
+    <link rel="stylesheet" href="<?= DOMAIN ?>/assets/css/app.css">
+    <link rel="stylesheet" href="<?= DOMAIN ?>/page/_component/app.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
     <script src="https://cdn.datatables.net/2.2.1/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-2.2.2/r-3.0.3/datatables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/3.2.1/js/buttons.colVis.min.js"></script>

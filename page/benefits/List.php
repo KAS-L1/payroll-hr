@@ -7,7 +7,7 @@
     <?php
         Breadcrumb([
             ['label' => 'Home', 'url' => '/dashboard'],
-            ['label' => 'Benefits & Compensation', 'url' => '/benefits-compensation'],
+            ['label' => 'Benefits & Compensation', 'url' => '/benefits'],
         ]);
     ?>
 
@@ -31,7 +31,7 @@
                         <tr>
                             <td class="px-6 py-4">
                                 <div class="flex justify-center items-center gap-3">
-                                    <a href="<?=ROUTE('benefits-compensation/details?emp_id='.$employee['employee_id'])?>" x-tooltip="Details" class="p-2">
+                                    <a href="<?=ROUTE('benefits/details?emp_id='.$employee['employee_id'])?>" x-tooltip="Details" class="p-2">
                                         <i class="fa fa-eye text-lg text-primary"></i> <b><?=$employee['employee_id']?></b>
                                     </a>
                                 </div>

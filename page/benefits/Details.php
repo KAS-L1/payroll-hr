@@ -13,7 +13,7 @@
     <?php
         Breadcrumb([
             ['label' => 'Home', 'url' => '/dashboard'],
-            ['label' => 'Benefits & Compensation', 'url' => '/benefits-compensation'],
+            ['label' => 'Benefits & Compensation', 'url' => '/benefits'],
             ['label' => 'Details'],
         ]);
     ?>
@@ -22,7 +22,7 @@
         <div class="flex flex-col items-center justify-center">
             <div class="flex flex-col items-center justify-center">
                 <div class="w-[100px] mb-2" id="previewPicture">
-                    <img src="<?= DOMAIN ?>/upload/profile/default.png" alt="image" id="profileImage" class="mb-4 h-24 w-24 rounded-full object-cover">
+                    <img src="<?=$employee['profile']?>" alt="image" id="profileImage" class="mb-4 h-24 w-24 rounded-full object-cover">
                 </div>
                 <div class="text-xs font-bold">EMP ID: <?=$employee['employee_id']?></div>
                 <h2 class="text-xl font-bold"><?=$employee['firstname'].' '.$employee['lastname']?></h2>
@@ -32,6 +32,7 @@
     
     <div class="mb-5 grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-2">
         <div class="panel">
+            <h4 class="text-lg font-bold">Benefits</h4>
             <table>
                 <tr>
                     <td>Benefit</td>
@@ -39,7 +40,7 @@
                         <div class="flex justify-end">
                             <button class="btn btn-dark btn-sm mb-4" id="btnAddBenefit">Add Benefits</button>
                         </div>
-                        <select class="form-input" id="benefit_type">
+                        <select class="form-input" id="benefit_category">
                             <?php foreach($benefits as $benefit){ ?>
                                 <option><?=$benefit['type']?></option>
                             <?php } ?>
@@ -53,6 +54,15 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Type</td>
+                    <td>
+                        <select class="form-input" id="benefit_type">
+                            <option>Add</option>
+                            <option>Deduct</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td colspan="1"></td>
                     <td class="flex justify-end">
                         <button class="btn btn-primary" id="btnAddCompensation">Add Compensation</button>
@@ -60,7 +70,9 @@
                 </tr>
             </table>
         </div>
+
         <div class="panel">
+            <h4 class="text-lg font-bold mb-4">Compensation</h4>
             <?php if(empty($benefits_compensation)){ ?>
                 <div class="flex items-center justify-center h-full">
                     <div class="font-bold">No Benefits & Compensation Available</div>
@@ -71,7 +83,8 @@
                         <tr>
                             <td><?=$data['type']?></td>
                             <td class="font-bold"><?=PESO($data['amount'])?></td>
-                            <td><i class="bi bi-pencil-square btnEdit" data-benefit_id="<?=$data['id']?>"></i></td>
+                            <td><i class="bi bi-pencil-square touchable btnEdit" data-benefit_id="<?=$data['id']?>"></i></td>
+                            <td><i class="bi bi-trash touchable btnDelete" data-benefit_id="<?=$data['id']?>"></i></td>
                         </tr>
                     <?php } ?>
                 </table>
@@ -81,16 +94,20 @@
 
 
     <div id="responseBenefits"></div>
+
     <script>
+
         $('#btnAddCompensation').click(function(){
             const employee_id = '<?=$employee_id?>';
-            const type = $('#benefit_type').val();
+            const category = $('#benefit_category').val();
             const amount = $('#benefit_amount').val();
+            const type = $('#benefit_type').val();
             btnLoading('#btnAddCompensation');
             $.post("<?=ROUTE('api/benefits/add_compensation.php')?>", {
                 employee_id:employee_id,
-                type: type,
-                amount: amount
+                category: category,
+                amount: amount,
+                type: type
             }, function(res){
                 $('#responseBenefits').html(res);
                 btnLoadingReset('#btnAddCompensation');
@@ -117,6 +134,15 @@
             $.post("<?=ROUTE('api/benefits/update_compensation.php')?>", {
                 benefit_id: benefit_id,
                 amount:amount
+            }, function(res){
+                $('#responseBenefits').html(res);
+            });
+        });
+
+        $('.btnDelete').click(function(){
+            const benefit_id = $(this).data('benefit_id');
+            $.post("<?=ROUTE('api/benefits/delete.php')?>", {
+                benefit_id: benefit_id
             }, function(res){
                 $('#responseBenefits').html(res);
             });

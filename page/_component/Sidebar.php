@@ -41,17 +41,8 @@
 
                         NavItem(
                             'bi bi-people',
-                            'Employees',
+                            'Employees Record',
                             '/employees',
-                            null,
-                            [],
-                            $currentRoute
-                        );
-
-                        NavItem(
-                            'bi bi-cash-coin',
-                            'Payrol Processing',
-                            '/payroll-processing',
                             null,
                             [],
                             $currentRoute
@@ -60,7 +51,25 @@
                         NavItem(
                             'bi bi-piggy-bank',
                             'Benefits & Compensation',
-                            '/benefits-compensation',
+                            '/benefits',
+                            null,
+                            [],
+                            $currentRoute
+                        );
+
+                        NavItem(
+                            'bi bi-cash-coin',
+                            'Payroll Processing',
+                            '/payroll',
+                            null,
+                            [],
+                            $currentRoute
+                        );
+
+                        NavItem(
+                            'bi bi-cash-stack',
+                            'Payroll Approved',
+                            '/payroll-approved',
                             null,
                             [],
                             $currentRoute
@@ -68,7 +77,7 @@
 
                         NavItem(
                             'bi bi-person-circle',
-                            'Self Service',
+                            'Self Service Leave',
                             '/self-service',
                             null,
                             [],
@@ -91,7 +100,7 @@
                         NavItem(
                             'bi bi-window-dock',
                             'Access Portal',
-                            '/payroll-approval',
+                            '/portal',
                             null,
                             [],
                             $currentRoute

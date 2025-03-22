@@ -5,8 +5,8 @@
 **/
 
 // DETAILS
-define("APP_NAME", "Payroll Sys");
-define("APP_TITLE", "Payroll Sogo");
+define("APP_NAME", "Paradise Hotel");
+define("APP_TITLE", "Paradise Hotel");
 define("APP_DESCRIPTION", "");
 define("APP_ICON", DOMAIN."/assets/logo/favicon.png");
 define("APP_LOGO", DOMAIN."/assets/logo/main.png");

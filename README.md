@@ -35,7 +35,6 @@ This file tracks tasks and progress for Payroll HR Capstone System.
     [
         {
             "employee_id": "EMP1001",
-            "employee_name": "JHON DOE",
             "total_days": 10,
             "total_holiday": 1,
             "cutoff_start" : "2025-02-01",
@@ -43,7 +42,6 @@ This file tracks tasks and progress for Payroll HR Capstone System.
         },
         {
             "employee_id": "EMP1002",
-            "employee_name": "JON DOE",
             "total_days": 8,
             "total_holiday": 0,
             "cutoff_start" : "2025-02-01",

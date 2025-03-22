@@ -1,0 +1,9 @@
+/* APPLICATION STYLING */
+
+.touchable{
+    cursor: pointer !important;
+}
+
+table tr th{
+    font-weight: 800 !important;
+}
