@@ -14,20 +14,49 @@ class Database
 
 	// INITIATE CONNECTION 	
     function __construct()
-    {
-        $connection = include __DIR__ . '/connection.php';
+    {   
+        try {
+            
+            // Require the connection file
+            $connection = require __DIR__ . '/connection.php';
 
-        // Ensure the connection file returns an array
-        if (!is_array($connection)) {
-            die("Database configuration error: connection.php must return an array.");
+            // Ensure the connection file returns an array
+            if (!is_array($connection)) {
+                throw new Exception("Database configuration error: connection.php must return an array.");
+            }
+
+            $this->DB_HOST = $connection['DB_HOST'] ?? 'localhost';
+            $this->DB_USER = $connection['DB_USER'] ?? 'root';
+            $this->DB_PASSWORD = $connection['DB_PASS'] ?? '';
+            $this->DB_NAME = $connection['DB_NAME'] ?? '';
+
+            $this->DB_CONNECTION();
+
+        } catch (Exception $e) {
+            die('
+                <!DOCTYPE html>
+                <html lang="en">
+                    <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>App Error</title>
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+                    </head>
+                    <body class="min-vh-100 d-flex align-items-center">
+                    <div class="container text-center">
+                        <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <p class="lead">Jose PHP Framework 🚀</p>
+                            <p class="mb-1 small">Something went wrong unexpected error occurred.</p>
+                            <code>'.$e->getMessage().'</code>
+                        </div>
+                        </div>
+                    </div>
+                    </body>
+                </html>
+            ');
         }
-
-        $this->DB_HOST = $connection['DB_HOST'] ?? 'localhost';
-        $this->DB_USER = $connection['DB_USER'] ?? 'root';
-        $this->DB_PASSWORD = $connection['DB_PASSWORD'] ?? '';
-        $this->DB_NAME = $connection['DB_NAME'] ?? '';
-
-        $this->DB_CONNECTION();
+        
     }
 
 	// CONNECTION INSTANCE
