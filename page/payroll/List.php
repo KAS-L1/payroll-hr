@@ -14,6 +14,23 @@
     <div class="mb-5 grid gap-6 sm:grid-cols-3 xl:grid-cols-4">
         
         <div class="panel sm:col-span-2 xl:col-span-3">
+            <div class="flex justify-end">
+                <button class="btn btn-primary" id="btnPayrollData">
+                    <i class="bi bi-people mr-2"></i> Get Payroll Data
+                </button>
+            </div>
+
+            <div id="responsePayrollData"></div>
+            <script>
+                $('#btnPayrollData').click(function(){
+                    btnLoading('#btnPayrollData');
+                    $.post("<?=ROUTE('api/payroll/get_data.php')?>", function(res){
+                        $('#responsePayrollData').html(res);
+                        btnLoadingReset('#btnPayrollData');
+                    });
+                });
+            </script>
+
             <div class="table-responsive min-h-[400px] grow overflow-y-auto sm:min-h-[300px]">
                 <table id="dataTable" class="table-bordered table-hover">
                     <thead class="bg-gray-50">

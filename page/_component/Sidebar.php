@@ -69,31 +69,33 @@
                         NavItem(
                             'bi bi-cash-stack',
                             'Payroll Approved',
-                            '/payroll-approved',
+                            '/payroll/approve',
                             null,
                             [],
                             $currentRoute
                         );
 
-                        NavItem(
-                            'bi bi-person-circle',
-                            'Self Service Leave',
-                            '/self-service',
-                            null,
-                            [],
-                            $currentRoute
-                        );
+                        // NavItem(
+                        //     'bi bi-person-circle',
+                        //     'Self Service Leave',
+                        //     '/self-service',
+                        //     null,
+                        //     [],
+                        //     $currentRoute
+                        // );
+                        
+                        if(AUTH_USER['role'] == "Admin" OR AUTH_USER['role'] == "Finance"){
+                            NavSection('FINANCE DEPARTMENT');
 
-                        NavSection('FINANCE DEPARTMENT');
-
-                        NavItem(
-                            'bi bi-cash-stack',
-                            'Payroll Approval',
-                            '/payroll-approval',
-                            null,
-                            [],
-                            $currentRoute
-                        );
+                            NavItem(
+                                'bi bi-cash-stack',
+                                'Payroll Approval',
+                                '/payroll-approval',
+                                null,
+                                [],
+                                $currentRoute
+                            );
+                        }
 
                         NavSection('AI HELP DESK');
 
