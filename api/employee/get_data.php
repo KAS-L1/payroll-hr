@@ -27,8 +27,8 @@ try{
             "pagibig" => $employee['pagibig'],
             "status" => $employee['status'],
             "approved" => $employee['approved'],
-            "registered_at" => $employee['created_at'],
-            "updated_at" => $employee['updated_at'],
+            "registered_at" => FORMAT_DATE($employee['created_at'], 'Y-m-d H:i:s'),
+            "updated_at" => FORMAT_DATE($employee['updated_at'], 'Y-m-d H:i:s'),
         ];
 
         $check_employee = $DB->SELECT_ONE_WHERE('employees', 'employee_id', ['employee_id' => $employee['employee_no']]);
